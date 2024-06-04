@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a best Job</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    
+    <div class="container">
+        <header>Earn $10-$20 daily</header>
+
+        <form method="POST" name="google-sheet">
+            <div class="field">
+                <div class="input-field">
+                    <input type="text" placeholder="Enter Full Name" name="Name">
+                </div>
+            </div>
+
+
+            <div class="field email-field">
+                <div class="input-field ">
+                    <input type="email" placeholder="Enter your email" class="email" name="Email">
+                </div>
+                <span class="error email-error">
+                    <i class='bx bx-error-circle error-icon'></i>
+                    <p class="error-text">Please enter a valid email</p>
+                </span>
+            </div>
+
+
+            <div class="field">
+                <div class="input-field">
+                    <input type="number" placeholder="Whatsapp number" name="Number">
+                </div>
+            </div>
+
+
+            <div class="field create-password">
+                <div class="input-field ">
+                    <input type="password" placeholder="Create password" class="password" name="Password">
+                    <i class='bx bx-hide show-hide' ></i>
+                </div>
+                <span class="error password-error">
+                    <i class='bx bx-error-circle error-icon'></i>
+                    <p class="error-text">Please enter atleast 8 character with number, symbol, small and capital letter.</p>
+                </span>
+            </div>
+
+
+            <div class="field confirm-password">
+                <div class="input-field ">
+                    <input type="password" placeholder="Confirm password" class="cPassword" name="CPassword">
+                    <i class='bx bx-hide show-hide' ></i>
+                </div>
+                <span class="error cPassword-error">
+                    <i class='bx bx-error-circle error-icon'></i>
+                    <p class="error-text">Password dont't match</p>
+                </span>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox">
+                <p>Data Entry Work</p>
+            </div>
+            <div class="checkbox bp">
+                <input type="checkbox">
+                <p>Copy Paste Work</p>
+            </div>
+
+
+            <div class="input-field button">
+                <input type="submit" value="Submit Now">
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzXqgT2s080GaiIacSXRt-Lt0yKkDI2Qg-aLjNfxls1SP7XN-DXlvy4fEm4bj9cqj8/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
